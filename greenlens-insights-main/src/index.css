@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GreenLens Design System - Professional Sustainability Theme */
+
+@layer base {
+  :root {
+    /* Core Colors - Forest Green & Earth Tones */
+    --background: 0 0% 100%;
+    --foreground: 150 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 10%;
+
+    /* Primary - Deep Forest Green */
+    --primary: 158 64% 22%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Sage/Muted Green */
+    --secondary: 150 20% 94%;
+    --secondary-foreground: 158 64% 22%;
+
+    /* Muted - Light Gray Green */
+    --muted: 150 10% 96%;
+    --muted-foreground: 150 10% 45%;
+
+    /* Accent - Olive/Earth Tone */
+    --accent: 75 40% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Highlight - Teal for gradient boxes */
+    --highlight: 175 50% 50%;
+    --highlight-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 10% 90%;
+    --input: 150 10% 90%;
+    --ring: 158 64% 22%;
+
+    --radius: 0px;
+
+    /* Custom Gradients */
+    --gradient-accent: linear-gradient(135deg, hsl(75 40% 45%) 0%, hsl(175 50% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(75 45% 50%) 0%, hsl(175 55% 55%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(150 10% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(150 10% 10% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(150 10% 10% / 0.1);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 150 10% 26%;
+    --sidebar-primary: 158 64% 22%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 20% 96%;
+    --sidebar-accent-foreground: 158 64% 22%;
+    --sidebar-border: 150 10% 91%;
+    --sidebar-ring: 158 64% 52%;
+  }
+
+  .dark {
+    --background: 150 15% 8%;
+    --foreground: 150 10% 95%;
+
+    --card: 150 15% 10%;
+    --card-foreground: 150 10% 95%;
+
+    --popover: 150 15% 10%;
+    --popover-foreground: 150 10% 95%;
+
+    --primary: 158 55% 45%;
+    --primary-foreground: 150 15% 8%;
+
+    --secondary: 150 15% 18%;
+    --secondary-foreground: 150 10% 95%;
+
+    --muted: 150 15% 18%;
+    --muted-foreground: 150 10% 60%;
+
+    --accent: 75 35% 50%;
+    --accent-foreground: 150 15% 8%;
+
+    --highlight: 175 45% 55%;
+    --highlight-foreground: 150 15% 8%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 150 10% 95%;
+
+    --border: 150 15% 18%;
+    --input: 150 15% 18%;
+    --ring: 158 55% 45%;
+
+    --sidebar-background: 150 15% 10%;
+    --sidebar-foreground: 150 10% 95%;
+    --sidebar-primary: 158 55% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 15% 15%;
+    --sidebar-accent-foreground: 150 10% 95%;
+    --sidebar-border: 150 15% 15%;
+    --sidebar-ring: 158 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Squared button styles */
+  .btn-squared {
+    @apply px-6 py-3 font-semibold transition-all duration-200;
+    border-radius: 0;
+  }
+
+  .btn-squared-primary {
+    @apply btn-squared bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-squared-outline {
+    @apply btn-squared border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background;
+  }
+
+  .btn-squared-ghost {
+    @apply btn-squared bg-transparent text-foreground hover:bg-muted;
+  }
+
+  /* Gradient highlight box */
+  .highlight-box {
+    background: var(--gradient-hero);
+    @apply px-4 py-2 text-white inline-block;
+  }
+
+  /* Section styles */
+  .section-padding {
+    @apply py-20 md:py-32 px-6 md:px-12;
+  }
+
+  /* Card squared style */
+  .card-squared {
+    @apply bg-card border border-border p-8;
+    border-radius: 0;
+  }
+
+  .custom-quill {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .custom-quill .ql-toolbar {
+    border-radius: 0;
+  }
+
+  .custom-quill .ql-container {
+    flex: 1;
+    overflow: hidden;
+    border: none;
+  }
+
+  .custom-quill .ql-editor {
+    height: 100%;
+    overflow-y: auto;
+    font-family: "Arial", "Helvetica Neue", sans-serif !important;
+  }
+
+  .custom-quill .ql-editor * {
+    font-family: "Arial", "Helvetica Neue", sans-serif !important;
+  }
+
+  .article-content-wrapper {
+    max-height: 46vh;
+    min-height: 28vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-content-wrapper .custom-quill {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .category-chip-button,
+  .category-chip-badge {
+    font-family: "Arial", "Helvetica Neue", sans-serif;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .category-chip-button {
+    font-size: 0.8rem;
+  }
+
+  .category-chip-badge {
+    font-size: 0.75rem;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+}
